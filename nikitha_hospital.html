@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikitha Hospital | Where Every Life Matters</title>
+    <meta name="description" content="Nikitha Hospital, Visakhapatnam. 60-bed Multi-Specialty Surgical & Bariatric Hospital.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #051525;
+            --accent-cyan: #00d4ff;
+            --text-white: #f8fbff;
+            --card-navy: #0a223d;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-navy);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            box-sizing: border-box;
+            background: rgba(5, 21, 37, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        
+        nav.scrolled {
+            background: rgba(5, 21, 37, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1.05rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .cta-btn {
+            background-color: var(--accent-cyan);
+            color: var(--primary-navy);
+            padding: 0.75rem 1.75rem;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .cta-btn-outline {
+            background: transparent;
+            color: var(--accent-cyan);
+            border: 2px solid var(--accent-cyan);
+            padding: 0.75rem 1.75rem;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+
+        .cta-btn-outline:hover {
+            background: var(--accent-cyan);
+            color: var(--primary-navy);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-white);
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        #home {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            padding: 0 5%;
+        }
+
+        #heroCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff, #b0c4de);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            color: #b0c4de;
+            font-style: italic;
+            font-family: var(--font-heading);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        /* Utilities */
+        section {
+            padding: 6rem 5%;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            color: var(--text-white);
+        }
+
+        .section-title span {
+            color: var(--accent-cyan);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, var(--card-navy), rgba(0, 212, 255, 0.1));
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8fa6c2;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(5,21,37,0.8) 100%);
+        }
+
+        .about-content h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-cyan);
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d1e0f0;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+
+        .about-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #f8fbff;
+        }
+
+        .about-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--card-navy);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--accent-cyan);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+            background: linear-gradient(180deg, var(--card-navy), #0b2847);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--text-white);
+        }
+
+        .service-desc {
+            color: #b0c4de;
+            line-height: 1.6;
+        }
+
+        /* Doctors Section */
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .doctor-card {
+            background: linear-gradient(145deg, var(--card-navy), #081d34);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 212, 255, 0.2);
+        }
+
+        .doctor-avatar {
+            height: 350px;
+            background: #0f2c4d;
+            background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 10px, transparent 10px, transparent 20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #8fa6c2;
+            font-family: var(--font-heading);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .doctor-avatar::after {
+            content: '👨‍⚕️ / 👩‍⚕️';
+            font-size: 6rem;
+            opacity: 0.2;
+            position: absolute;
+        }
+
+        .doctor-info {
+            padding: 2.5rem;
+        }
+
+        .doctor-name {
+            font-size: 2.2rem;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        .doctor-qual {
+            font-size: 1rem;
+            color: #f8fbff;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .doctor-role {
+            font-weight: 500;
+            color: #b0c4de;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .doctor-desc {
+            line-height: 1.7;
+            color: #d1e0f0;
+        }
+
+        /* Achievements Section */
+        #achievements {
+            background: #030e1a;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .achievement-card {
+            background: rgba(10, 34, 61, 0.4);
+            padding: 1.8rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-cyan);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .achievement-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .achievement-icon {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent-cyan);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .achievement-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .achievement-text strong {
+            color: var(--text-white);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .achievement-text span {
+            color: #b0c4de;
+            font-size: 0.95rem;
+        }
+
+        /* Stats Counter Section */
+        #stats {
+            padding: 0;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(10, 34, 61, 0.9));
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: -3rem 5% 4rem;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 180px;
+            margin: 1rem;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stat-label {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #d1e0f0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Testimonials Carousel */
+        .testimonials-wrapper {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .testimonials-wrapper::before,
+        .testimonials-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .testimonials-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, var(--primary-navy), transparent);
+        }
+        
+        .testimonials-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, var(--primary-navy), transparent);
+        }
+
+        .testimonials-track {
+            display: flex;
+            gap: 2rem;
+            width: max-content;
+            animation: scrollTrack 40s linear infinite;
+        }
+
+        .testimonials-wrapper:hover .testimonials-track {
+            animation-play-state: paused;
+        }
+
+        .testimonial-card {
+            background: var(--card-navy);
+            padding: 2.5rem;
+            border-radius: 15px;
+            width: 450px;
+            flex-shrink: 0;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            position: relative;
+        }
+        
+        .quote-mark {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 4rem;
+            font-family: var(--font-heading);
+            color: rgba(0, 212, 255, 0.1);
+            line-height: 1;
+        }
+
+        .stars {
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            color: #d1e0f0;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .verified-badge {
+            background: rgba(0, 212, 255, 0.15);
+            color: var(--accent-cyan);
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes scrollTrack {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 1rem)); } 
+        }
+
+        /* Gallery */
+        #gallery {
+            background: #030e1a;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            height: 300px;
+            background: linear-gradient(135deg, rgba(0,212,255,0.05), rgba(10,34,61,0.8));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: repeating-linear-gradient(45deg, rgba(0,212,255,0.03) 0px, rgba(0,212,255,0.03) 10px, transparent 10px, transparent 20px);
+            transition: opacity 0.3s;
+            opacity: 0.5;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item:hover {
+            border-color: rgba(0, 212, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .gallery-label {
+            background: rgba(5, 21, 37, 0.9);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-white);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            z-index: 2;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .gallery-item:hover .gallery-label {
+            transform: scale(1.05);
+            background: var(--accent-cyan);
+            color: var(--primary-navy);
+        }
+
+        /* Appointment / Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .appointment-form {
+            background: var(--card-navy);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0,212,255,0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .appointment-form h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--text-white);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1.2rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            background: rgba(0, 212, 255, 0.05);
+        }
+        
+        select.form-control option {
+            background-color: var(--primary-navy);
+            color: var(--text-white);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--accent-cyan);
+            color: var(--primary-navy);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #00b3d6;
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .form-success {
+            display: none;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 250px;
+            border-radius: 12px;
+            background: #0f2c4d;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            background: rgba(255,255,255,0.02);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .info-icon {
+            color: var(--accent-cyan);
+            font-size: 1.8rem;
+            background: rgba(0, 212, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .info-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+        }
+        
+        .info-content p {
+            color: #b0c4de;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #020a12;
+            padding: 5rem 5% 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-about p {
+            color: #b0c4de;
+            line-height: 1.6;
+            margin-top: 1rem;
+            max-width: 400px;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-white);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #b0c4de;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+        
+        .social-icons a:hover {
+            background: var(--accent-cyan);
+            color: var(--primary-navy);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #8fa6c2;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            .stats-container {
+                margin: -2rem 5% 3rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(5, 21, 37, 0.98);
+                flex-direction: column;
+                padding: 2rem 0;
+                text-align: center;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .doctors-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+            .stat-item {
+                flex: 1 1 40%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#home" class="logo-container">
+            <img src="logo.jpeg" alt="Nikitha Hospital Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('alt-logo').style.display='block';">
+            <div id="alt-logo" style="display: none;">
+                <span style="background: var(--accent-cyan); color: var(--primary-navy); padding: 5px 10px; border-radius: 50%; font-weight: bold; font-family: var(--font-heading);">NH</span>
+            </div>
+        </a>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#doctors">Doctors</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="cta-btn">Book Appointment</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-content">
+            <h1 class="hero-title">Excellence in Surgical Care Since 2002</h1>
+            <p class="hero-subtitle">"Where Every Life Matters"</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="cta-btn">Book Appointment</a>
+                <a href="#about" class="cta-btn-outline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number" data-target="20" data-plus="true">0</div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="10000" data-plus="true">0</div>
+                <div class="stat-label">Surgeries Performed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="60" data-plus="false">0</div>
+                <div class="stat-label">Hospital Beds</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="500" data-plus="true">0</div>
+                <div class="stat-label">Bariatric Surgeries</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="2" data-plus="true">0</div>
+                <div class="stat-label">Specialist Doctors</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About <span>Nikitha Hospital</span></h2>
+        <div class="about-grid">
+            <div class="about-image">
+                [ Hospital Photo Placeholder ]
+            </div>
+            <div class="about-content">
+                <h3>A Legacy of Trust in Visakhapatnam</h3>
+                <p>Established in 2002, Nikitha Hospital is a premier 60-bed Multi-Specialty Surgical & Bariatric center located at Seethammadhara Junction. For over two decades, we have been at the forefront of providing advanced medical care with a compassionate approach.</p>
+                <p>We are proud to be the pioneers in several advanced surgical procedures in Visakhapatnam, offering world-class facilities and a team of highly experienced specialists dedicated to your well-being.</p>
+                <ul class="about-list">
+                    <li>Rajiv Aarogyasri Empanelled Network Hospital</li>
+                    <li>State-of-the-art Modular Operation Theatres</li>
+                    <li>24/7 Emergency & Trauma Care</li>
+                    <li>Advanced ICU Facility</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" style="background: #030e1a;">
+        <h2 class="section-title">Our <span>Specialties</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">⚖️</div>
+                <h3 class="service-title">Obesity & Bariatric Surgery</h3>
+                <p class="service-desc">Gastric sleeve, bypass, and banding. Vizag's first and highest-volume bariatric centre for sustainable weight loss.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3 class="service-title">VASER Liposuction</h3>
+                <p class="service-desc">Advanced body contouring for abs, tummy, arms, and thighs. Equipped with Vizag's 1st VASER machine for less pain.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔬</div>
+                <h3 class="service-title">Laparoscopic Gynaecology</h3>
+                <p class="service-desc">Minimally invasive hysterectomy (TLH), PCOD drilling, ovarian cysts, and endometriosis management.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤱</div>
+                <h3 class="service-title">Obstetrics & Maternity</h3>
+                <p class="service-desc">Complete pregnancy care, well-equipped labour room, continuous foetal monitoring, and safe delivery protocols.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧬</div>
+                <h3 class="service-title">Infertility Treatment</h3>
+                <p class="service-desc">Diagnostic laparoscopy, chromotubation test, IVF support, and comprehensive PCOD management.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏥</div>
+                <h3 class="service-title">General & Laparoscopic</h3>
+                <p class="service-desc">Surgical solutions for gallbladder, appendix, hernia, thyroid, and bowel conditions with faster recovery.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3 class="service-title">Robotic Surgery</h3>
+                <p class="service-desc">Advanced robotic-assisted procedures ensuring unmatched precision, smaller incisions, and faster recovery.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🩺</div>
+                <h3 class="service-title">Urology</h3>
+                <p class="service-desc">Treatment for kidney stones, BPH, and stress urinary incontinence managed by our expert on-call specialists.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🦴</div>
+                <h3 class="service-title">Orthopaedics & Trauma</h3>
+                <p class="service-desc">Management of long bone fractures and comprehensive trauma care available round-the-clock.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors">
+        <h2 class="section-title">Our Expert <span>Specialists</span></h2>
+        <div class="doctors-grid">
+            <div class="doctor-card">
+                <div class="doctor-avatar">
+                    [ Dr. Ramesh Avatar ]
+                </div>
+                <div class="doctor-info">
+                    <h3 class="doctor-name">Dr. K. Ramesh Naidu</h3>
+                    <div class="doctor-qual">M.S., F.A.I.S</div>
+                    <div class="doctor-role">General, Laparoscopic & Robotic Surgeon</div>
+                    <p class="doctor-desc">One of Vizag's most trusted surgeons with extensive expertise in advanced laparoscopic and robotic procedures. He holds the distinction of pioneering bariatric surgery in Visakhapatnam.</p>
+                </div>
+            </div>
+            
+            <div class="doctor-card">
+                <div class="doctor-avatar">
+                    [ Dr. Sunanda Avatar ]
+                </div>
+                <div class="doctor-info">
+                    <h3 class="doctor-name">Dr. G. Sunanda Rani</h3>
+                    <div class="doctor-qual">MBBS, DGO, MBA (HospAdm)</div>
+                    <div class="doctor-role">Obstetrician, Gynaec Laparoscopic & Robotic Surgeon</div>
+                    <p class="doctor-desc">Eminent obstetrician and infertility specialist. Graduate of Andhra Medical College. She has achieved multiple surgical 'firsts' in Vizag, including pioneering Total Laparoscopic Hysterectomy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <h2 class="section-title">Our Firsts in <span>Visakhapatnam</span></h2>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="achievement-icon">✓</div>
+                <div class="achievement-text">
+                    <strong>1st Bariatric Surgery in Vizag</strong>
+                    <span>Hospital with the highest number of weight-loss surgeries performed in the city.</span>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">✓</div>
+                <div class="achievement-text">
+                    <strong>1st VASER Liposuction Machine</strong>
+                    <span>Pioneered advanced body contouring with less pain, less blood loss & faster recovery.</span>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">✓</div>
+                <div class="achievement-text">
+                    <strong>1st Total Laparoscopic Hysterectomy</strong>
+                    <span>TLH successfully performed first in Visakhapatnam by Dr. G. Sunanda Rani.</span>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">✓</div>
+                <div class="achievement-text">
+                    <strong>1st TLH using Ligasure</strong>
+                    <span>Advanced vessel sealing technology utilized for the first time in Vizag.</span>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">✓</div>
+                <div class="achievement-text">
+                    <strong>1st Lap Assisted Vaginal Hysterectomy</strong>
+                    <span>Successfully executed for a Giant Fibroid Uterus without open surgery.</span>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">✓</div>
+                <div class="achievement-text">
+                    <strong>1st Lap Removal of Giant Ovarian Cyst</strong>
+                    <span>Complex twisted ovarian cyst removal accomplished laparoscopically.</span>
+                </div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">⭐</div>
+                <div class="achievement-text">
+                    <strong>Rajiv Aarogyasri Network Empanelled</strong>
+                    <span>Authorized care for General Surgery, OBG, Orthopaedics, Urology, and Polytrauma.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" style="background: var(--primary-navy);">
+        <h2 class="section-title">Hospital <span>Facilities</span></h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <span class="gallery-label">Operation Theatre</span>
+            </div>
+            <div class="gallery-item">
+                <span class="gallery-label">ICU</span>
+            </div>
+            <div class="gallery-item">
+                <span class="gallery-label">Labour Room</span>
+            </div>
+            <div class="gallery-item">
+                <span class="gallery-label">Reception</span>
+            </div>
+            <div class="gallery-item">
+                <span class="gallery-label">Patient Wards</span>
+            </div>
+            <div class="gallery-item">
+                <span class="gallery-label">Laparoscopy Unit</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" style="background: #030e1a;">
+        <h2 class="section-title">Patient <span>Stories</span></h2>
+        <div class="testimonials-wrapper">
+            <div class="testimonials-track" id="testimonialTrack">
+                <!-- Original Items -->
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">Dr. Sunanda Rani is an expert doctor and gave me accurate results for my fertility problem. I'm now a proud mother. Forever grateful to Nikitha Hospital.</p>
+                    <div class="testimonial-author">Priya Sharma</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">I had my bariatric surgery here and lost over 40kg in 8 months. The doctors and staff were extremely caring. Nikitha Hospital truly changed my life.</p>
+                    <div class="testimonial-author">Ravi Kumar</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">The labour room facilities are excellent. I had a safe delivery here and the nurses were so supportive throughout. Highly recommend.</p>
+                    <div class="testimonial-author">Lakshmi Devi</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="stars">★★★★☆</div>
+                    <p class="testimonial-text">Dr. Ramesh Naidu performed my laparoscopic cholecystectomy. Minimal pain, fast recovery. Back to work in 5 days. Outstanding surgical skills.</p>
+                    <div class="testimonial-author">Suresh Babu</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">VASER liposuction done by Dr. Ramesh Naidu. The results are incredible — less pain compared to traditional lipo. Very professional team.</p>
+                    <div class="testimonial-author">Anitha Reddy</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">Dr. Sunanda is a very good and experienced doctor. She is a versatile doctor who diagnoses the exact problem and provides proper counseling too.</p>
+                    <div class="testimonial-author">Meera Polaki <span class="verified-badge">Verified</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Appointment Section -->
+    <section id="contact">
+        <h2 class="section-title">Book an <span>Appointment</span></h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p style="color: #b0c4de; margin-bottom: 1rem; line-height: 1.6;">Reach out to us for consultations, emergencies, or detailed inquiries about our surgical procedures and maternity care.</p>
+                
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-content">
+                        <h4>Address</h4>
+                        <p>54-13-6, Seethammadhara Junction,<br>Visakhapatnam, Andhra Pradesh – 530013<br><br><em>Landmark: Beside State Bank of India (SBI)</em></p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div class="info-content">
+                        <h4>Phone</h4>
+                        <p>0891-2501501 | 2719797 | 2719696<br>Mobile: +91 98491 27287</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">🕒</div>
+                    <div class="info-content">
+                        <h4>Working Hours</h4>
+                        <p>Mon–Sat: 10:00 AM – 9:30 PM<br>Emergency Care: 24/7</p>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.089868770763!2d83.3150029!3d17.7404104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3943486cffffff%3A0x8bbd36a9b47e5b22!2sSeethammadhara%20Junction!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="appointment-form">
+                <h3>Request a Consultation</h3>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <input type="text" id="name" class="form-control" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" class="form-control" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="department" class="form-control" required>
+                            <option value="">Select Department / Specialty</option>
+                            <option value="bariatric">Obesity & Bariatric Surgery</option>
+                            <option value="gynaecology">Laparoscopic Gynaecology</option>
+                            <option value="maternity">Obstetrics & Maternity</option>
+                            <option value="general">General & Laparoscopic Surgery</option>
+                            <option value="vaser">VASER Liposuction</option>
+                            <option value="other">Other Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <input type="date" id="date" class="form-control" required>
+                        <input type="time" id="time" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" class="form-control" rows="4" placeholder="Briefly describe your medical concern (Optional)"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Confirm Appointment Request</button>
+                    <div id="formSuccess" class="form-success">
+                        Thank you! Your appointment request has been received. Our team will contact you shortly to confirm the timings.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="logo-container" style="justify-content: flex-start; margin-bottom: 1rem;">
+                    <img src="logo.jpeg" alt="Nikitha Hospital Logo" style="height: 40px; display: none;" onload="this.style.display='block'">
+                    <span style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: bold; color: var(--text-white);">Nikitha Hospital</span>
+                </div>
+                <p>Providing advanced surgical, bariatric, and maternity care in Visakhapatnam since 2002. Where every life matters, and every patient is treated with top-tier medical excellence.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook">ⓕ</a>
+                    <a href="#" aria-label="WhatsApp">💬</a>
+                    <a href="mailto:info@nikithahospital.com" aria-label="Email">✉</a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Specialties</a></li>
+                    <li><a href="#doctors">Our Doctors</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Patient Info</h4>
+                <ul>
+                    <li><a href="#contact">Book Appointment</a></li>
+                    <li><a href="#">Aarogyasri Details</a></li>
+                    <li><a href="#">Insurance Partners</a></li>
+                    <li><a href="#">Patient Rights</a></li>
+                    <li><a href="#contact">Location Map</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            &copy; 2002–2025 Nikitha Hospital, Visakhapatnam. All Rights Reserved.<br>
+            <a href="http://www.nikithahospital.com" target="_blank" style="color: var(--accent-cyan); display: inline-block; margin-top: 5px;">www.nikithahospital.com</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // --- Navbar Scroll Effect & Hamburger Menu ---
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const links = navLinks.querySelectorAll('a');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // --- Hero Canvas Neural Network Animation ---
+        const canvas = document.getElementById('heroCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const particleCount = 60;
+        const connectDistance = 140;
+
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.size = Math.random() * 1.5 + 0.5;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.fillStyle = '#00d4ff';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (dist < connectDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 212, 255, ${0.4 * (1 - dist/connectDistance)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
+
+        // --- Intersection Observer for Numbers Counter ---
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const isPlus = counter.getAttribute('data-plus') === 'true';
+                        const duration = 2000; // ms
+                        const step = target / (duration / 16); 
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            current += step;
+                            if (current < target) {
+                                counter.innerText = Math.ceil(current) + (isPlus ? '+' : '');
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                // Formatting with commas for large numbers like 10,000
+                                const formatted = target >= 1000 ? target.toLocaleString() : target;
+                                counter.innerText = formatted + (isPlus ? '+' : '');
+                            }
+                        };
+                        updateCounter();
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats-container');
+        if (statsSection) statsObserver.observe(statsSection);
+
+        // --- Intersection Observer for Achievement Cards ---
+        const achObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.querySelectorAll('.achievement-card');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, 150 * index);
+                    });
+                    achObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        const achievementsGrid = document.querySelector('.achievements-grid');
+        if (achievementsGrid) achObserver.observe(achievementsGrid);
+
+        // --- Testimonials Infinite Auto-Scroll ---
+        const track = document.getElementById('testimonialTrack');
+        if (track) {
+            // Duplicate the items to create a seamless infinite scroll loop
+            const clone = track.innerHTML;
+            track.innerHTML += clone;
+        }
+
+        // --- Appointment Form Handling ---
+        const bookingForm = document.getElementById('bookingForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Front-end validation happens automatically due to HTML5 'required' attributes
+                
+                // Show success message
+                formSuccess.style.display = 'block';
+                
+                // Reset form fields
+                bookingForm.reset();
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formSuccess.style.display = 'none';
+                }, 5000);
+            });
+        }
+    </script>
+</body>
+</html>
